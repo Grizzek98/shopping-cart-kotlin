@@ -5,7 +5,7 @@ operate mainmenu loop
  */
 fun main() {
     val cart = Cart()
-    val mainMenu = mutableListOf("Add", "Remove", "View", "Quit")
+    val mainMenu = mutableListOf("Add", "Remove", "Modify", "View", "Quit")
 
     while (true) {
         println("---- MAIN MENU ----")
@@ -18,6 +18,7 @@ fun main() {
         when (readLine()) {
             "Add" -> addMenu(cart)
             "Remove" -> removeMenu(cart)
+            "Modify" -> modifyMenu(cart)
             "View" -> cart.viewCart(cart)
             "Quit" -> exitProcess(1)
         }
@@ -72,7 +73,7 @@ check to make sure item exists
 remove by quantity, either completely or partially
 */
 fun removeMenu(cart: Cart) {
-    println("\n---- REMOVE MENU ----")
+    println("\n---- REMOVE ITEM ----")
     println("Please enter name of item to remove: ")
     print("> ")
     val name = readLine()
@@ -85,7 +86,6 @@ fun removeMenu(cart: Cart) {
             val quantity = readLine()
 
             if (quantity != null) {
-
                 if (quantity.toInt() == item.quantity) {
                     cart.removeItem(item)
                     println("\nItem removed.\n")
@@ -106,6 +106,35 @@ fun removeMenu(cart: Cart) {
         }
     }
 
+}
+
+
+/*
+get user input for what item to modify
+if item is in cart, modify price
+ */
+fun modifyMenu(cart: Cart) {
+    println("\n---- MODIFY ITEM ----")
+    println("Please enter name of item to modify: ")
+    print(">  ")
+    val name = readLine()
+
+    for (item in cart.cart) {
+        if (item.name == name) {
+            println("\nItem ${item.name} found with price of $${item.price}.\n")
+            println("Please enter new item price: ")
+            print("> ")
+            val price = readLine()
+
+            if (price != null) {
+                item.price = price.toFloat()
+                println("Price of ${item.name} has been updated to $${item.price}")
+                return
+            }
+        }
+    }
+    println("\nItem does not exist in cart.\n")
+    return
 }
 
 
