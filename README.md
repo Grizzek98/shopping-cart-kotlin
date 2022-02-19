@@ -5,9 +5,7 @@ The purpose of this project was to learn the basic syntax and functionality of t
 This is a recreation of my basic shopping cart program using Kotlin.
 The user can add, remove, and modify items in a shopping cart.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.  Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/084hit-8U04)
 
 # Development Environment
 
@@ -23,3 +21,4 @@ The user can add, remove, and modify items in a shopping cart.
 # Future Work
 
 * Add type error handling for user input
+* Get floats to print with precision 2
